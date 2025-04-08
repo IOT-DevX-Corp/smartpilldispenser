@@ -4,14 +4,18 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { SafeAreaView, StyleSheet, View } from "react-native";
 import 'react-native-reanimated';
-import { SafeAreaView } from "react-native";
-import CommandSender from "../components/CommandSender";
-
 import { useColorScheme } from '@/hooks/useColorScheme';
+
+// Initialize Firebase
+import { initializeFirebase } from '@/services/firebaseInit';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+// Initialize Firebase as early as possible
+initializeFirebase();
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -31,14 +35,19 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={styles.container}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
+          <Stack.Screen name="+not-found" options={{ title: 'Not Found' }} />
         </Stack>
-        <CommandSender /> {/* Ensure this is correctly placed */}
       </SafeAreaView>
-      <StatusBar style="auto" />
+      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </ThemeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "678890602245",
+    "firebase_url": "https://iot-prj-ac910-default-rtdb.firebaseio.com",
+    "project_id": "iot-prj-ac910",
+    "storage_bucket": "iot-prj-ac910.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:678890602245:android:5c24a1cedf20440e31016c",
+        "android_client_info": {
+          "package_name": "com.iotdevx.pill"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBchrUQznnq0FQpjInEkumcQT0VNQC1Nyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
